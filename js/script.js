@@ -5,8 +5,9 @@
 
 
 // seleziono gli elementi della pagina di input
-const kmPercorsi = document.getElementById('chilometri');
-const etaPasseggero = document.getElementById ('età');
+const kmField = document.getElementById('chilometri');
+const etaField = document.getElementById ('età');
+const bottone = document.querySelector ('button');
 
 // seleziono gli elementi della pagina di output
 
@@ -15,46 +16,59 @@ const etaPasseggero = document.getElementById ('età');
 
 
 
+bottone.addEventListener ('click', function () {
 
+    const chilometri = kmField.value;
 
-
-
-
-// Prezzo del biglietto
-// const prezzochilometro = 0.21;
-
-// // Calcoliamo il prezzo del biglietto in base ai km
-// let prezzoTotale = (chilometri * prezzochilometro);
-
-// console.log(prezzoTotale);
-
-
-// // In base all'età del passeggero applichiamo gli sconti
-//   // SE è minore di 18 anni avrà lo sconto del 20%
-
-//   if(eta < 18) {
-//     let sconto = 20/100;
-//     prezzoTotale = (prezzoTotale - (prezzoTotale * sconto)).toFixed(2);
-//     console.log(prezzoTotale);
+    const eta = etaField.value;
     
-//   }
-//     // SE è maggiore di 65 anni avrà lo sconto del 40%
+    
+    // Prezzo del biglietto
+    // const prezzochilometro = 0.21;
+    
+    // Calcoliamo il prezzo del biglietto in base ai km
+    let prezzoTotale = (chilometri * 0.21);
+    
+    // console.log(prezzoTotale);
+    
+    
+    // In base all'età del passeggero applichiamo gli sconti
+    // SE è minore di 18 anni avrà lo sconto del 20%
+    
+    if(eta < 18) {
+        let sconto = 20/100;
+        prezzoTotale = (prezzoTotale - (prezzoTotale * sconto)).toFixed(2);
+        console.log(prezzoTotale);
+        
+    }
+    // SE è maggiore di 65 anni avrà lo sconto del 40%
+    
+    else if(eta > 65) {
+        let sconto = 40/100;
+        prezzoTotale = (prezzoTotale - (prezzoTotale * sconto)).toFixed(2);
+        console.log(prezzoTotale);
+    }
+    
+    
+    // SE il passeggero ha un'età tra i 18 e i 64 anni pagherà prezzo pieno
+    
+    else{
+        console.log(prezzoTotale);
+    }
+    
+}
+);
 
-//   else if(eta > 65) {
-//     let sconto = 40/100;
-//     prezzoTotale = (prezzoTotale - (prezzoTotale * sconto)).toFixed(2);
-//     console.log(prezzoTotale);
-// }
 
 
-//   // SE il passeggero ha un'età tra i 18 e i 64 anni pagherà prezzo pieno
 
-// else{
-//     console.log(prezzoTotale);
-// }
+
+
+
+
 
 
 // // OUTPUT 
 // // Prezzo totale
-    
+
 // console.log(`il prezzo totale del biglietto sarà di ${prezzoTotale} `);
